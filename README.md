@@ -25,3 +25,32 @@ Because we found variables (ground clearance and vehicle length) which are stati
 ### Further study is warranted to predict MPG
 
 Because Intercept is statistically significant, there may be other factors and variables contributing to the variation in MPG that were not included in this model. Therefore, this model does not predict MPG of MechaCar prototypes effectively. Other variables which contribute to the variation in MPG may still need to be collected or observed.
+
+## Summary Statistics on Suspension Coils
+
+The MechaCar manufacturers are interested in the following question: 
+
+    * The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? 
+
+To provide the data the manufacture needs to answer this question, I ran used the summarize() function to create a table of summary statistics on the PSI column in the Coils dataset for all the lots. 
+
+```
+total_summary <- summarize(Coils, meanPSI=mean(PSI), medianPSI=median(PSI), variancePSI=var(PSI), SDPSI=sd(PSI))
+```
+
+![image of summary_table for PSI across all lots](/Images/total_summary.png)
+
+The variance of suspension coils for all manufacturing lots in total is 62.29 pounds per square inch. This meets their design specifications that PSI should not exceed 100 pounds per square inch.
+
+Then, the data was grouped by Manufacturing Lot in order to summarize the statistics for PSI within each lot. 
+
+```
+lot_grouping <- group_by(Coils, Manufacturing_Lot)
+
+lot_summary <- summarize(lot_grouping, Mean=mean(PSI), Median=median(PSI), Variance=var(PSI), SD=sd(PSI))
+```
+
+![image of total_summary for PSI in each lot](/Images/lot_summary.png)
+
+By breaking down the statistics for each lot, we can see that in Lot 3, there is a variance in PSI of 170.29 pounds per square inch. This does not meet the MechaCar design specifications as it exceeds 100PSI. 
+
