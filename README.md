@@ -54,3 +54,26 @@ lot_summary <- summarize(lot_grouping, Mean=mean(PSI), Median=median(PSI), Varia
 
 By breaking down the statistics for each lot, we can see that in Lot 3, there is a variance in PSI of 170.29 pounds per square inch. This does not meet the MechaCar design specifications as it exceeds 100PSI. 
 
+## T-tests on Suspension Coils
+
+The question of whether PSI across all manufacturing lots is statistically different from the population mean of 1,500 PSI is answered with the following code:
+
+![image of PSI_Lot_Summary means test](/Images/Del3_PSI_across_all_lots.png)
+
+Here, we can see the results showing that the p-value = 1, which means that the mean of the PSI across all lots is not statistically different from the population mean of PSI of 1,500. We fail to reject the null hypothesis.
+
+Now, we will run similar t-tests for each lot to compare PSI with the mean population PSI of 1,500.
+
+Lot 1:
+![image of Lot1_PSI_t-test.png](/Images/Lot1_PSI_t-test.png)
+We fail to reject the null hypothesis, because the P-value is less than 0.0001. 
+
+Lot 2: 
+![image of Lot2_PSI_mean.png](/Images/Lot2_PSI_mean.png)
+We fail to reject the null hypothesis, because the p-value is 0.0006.
+
+Lot 3: 
+![image of Lot3_PSI.png](/Images/Lot3_PSI.png)
+For Lot 3 we reject the null hypothesis, because the p-value is 0.1589. This means that the PSI values on Lot 3 could as much be a result of chance as any other factor measured.
+
+
